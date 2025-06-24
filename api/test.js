@@ -1,11 +1,12 @@
-
-export default function handler(req, res) {
+module.exports = (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Type', 'application/json');
   
-  return res.status(200).json({
+  res.status(200).json({
     success: true,
-    message: 'API is working!',
+    message: 'Test function working with CommonJS!',
     timestamp: new Date().toISOString(),
-    endpoint: 'test'
+    method: req.method,
+    url: req.url
   });
-}
+};
